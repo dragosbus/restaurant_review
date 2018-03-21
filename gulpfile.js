@@ -8,7 +8,7 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 
-gulp.task('serve', ['build'], () => {
+gulp.task('serve', () => {
     browserSync.init({
         server: './'
     });
