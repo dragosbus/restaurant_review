@@ -8,12 +8,13 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 
-gulp.task('serve', () => {
+gulp.task('serve', ['style'], () => {
+    gulp.watch('scss/**/*.scss', ['style']);
+    gulp.watch('*.html').on('change', browserSync.reload);
+
     browserSync.init({
         server: './'
     });
-
-    gulp.watch('*.html').on('change', browserSync.reload);
 });
 
 gulp.task('imagemin', () => {
@@ -30,3 +31,15 @@ gulp.task('bundle', () =>
         .pipe(uglify())
         .pipe(gulp.dest('dist/js/'))
 );
+
+gulp.task('style', () => {
+    gulp.src('src/scss/**/*.scss')
+        .pipe(sass({
+            outputStyle: "compressed"
+        }).on('error', sass.logError))
+        .pipe(autoPrefixer({
+            browsers: ["last 2 versions"]
+        }))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(browserSync.stream());
+});
