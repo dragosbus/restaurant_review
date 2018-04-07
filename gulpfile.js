@@ -7,9 +7,11 @@ var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
+var sass = require('gulp-sass');
+var autoPrefixer = require('gulp-autoprefixer');
 
 gulp.task('serve', ['style'], () => {
-    gulp.watch('scss/**/*.scss', ['style']);
+    gulp.watch('src/scss/**/*.scss', ['style']);
     gulp.watch('*.html').on('change', browserSync.reload);
 
     browserSync.init({
