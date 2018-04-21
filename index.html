@@ -35,24 +35,23 @@
         <button class="menu">
             <img src="/img/icons/menu.png" alt="Menu">
         </button>
-        <div class="overlay">
-            <nav class="main-nav">
-                <button class="close">
-                    <img src="/img/icons/cross.svg" alt="Close Menu">
-                </button>
-                <div class="filter-options">
-                    <h2>Filter Results</h2>
-                    <label for="neighborhoods-select">Select neighborhoods</label>
-                    <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-                        <option value="all">All Neighborhoods</option>
-                    </select>
-                    <label for="cuisines-select">Select Cuisines</label>
-                    <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-                        <option value="all">All Cuisines</option>
-                    </select>
-                </div>
-            </nav>
-        </div>
+        <nav class="main-nav">
+            <button class="close">
+                <img src="/img/icons/cross.svg" alt="Close Menu">
+            </button>
+            <div class="filter-options">
+                <h2>Filter Results</h2>
+                <label for="neighborhoods-select">Select neighborhoods</label>
+                <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+                    <option value="all">All Neighborhoods</option>
+                </select>
+                <label for="cuisines-select">Select Cuisines</label>
+                <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+                    <option value="all">All Cuisines</option>
+                </select>
+            </div>
+        </nav>
+        <div class="overlay"></div>
 
     </header>
     <!-- End Main Header -->
