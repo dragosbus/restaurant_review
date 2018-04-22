@@ -18,6 +18,8 @@ var assets = [
   './dist/img/8.jpg',
   './dist/img/9.jpg',
   './dist/img/10.jpg',
+  './dist/img/icons/menu.svg',
+  './dist/img/icons/cross.svg',
   './restaurant.html?id=1',
   './restaurant.html?id=2',
   './restaurant.html?id=3',
