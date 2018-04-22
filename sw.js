@@ -1,3 +1,5 @@
+var CACHE_NAME = 'restaurant-v3';
+
 //Assests
 var assets = [
   './',
@@ -64,7 +66,7 @@ self.addEventListener('activate', function (event) {
     caches.keys()
       .then(function (keyList) {
         return Promise.all(keyList.map(function (key) {
-          if (key !== 'restaurant' && key !== 'dynamic') {
+          if (key !== CACHE_NAME && key !== 'dynamic') {
             return caches.delete(key);
           }
         }));
@@ -73,7 +75,7 @@ self.addEventListener('activate', function (event) {
   return self.clients.claim();
 });
 
-//handle the cache
+
 self.addEventListener('fetch', function (e) {
   const request = e.request;
   const url = new URL(request.url);
