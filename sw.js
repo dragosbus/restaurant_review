@@ -1,4 +1,4 @@
-var CACHE_NAME = 'restaurant-v3';
+var CACHE_NAME = 'restaurant-v5';
 
 //Assests
 var assets = [
@@ -76,29 +76,18 @@ self.addEventListener('activate', function (event) {
 });
 
 
-self.addEventListener('fetch', function (e) {
-  const request = e.request;
-  const url = new URL(request.url);
-
-  if (url.origin === location.origin) {
-    e.respondWith(cacheFirst(request));
-  } else {
-    e.respondWith(networkFirst(request));
-  }
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(res => {
+      if (res) return res;
+      else {
+        return fetch(e.request).then(response => {
+          return caches.open(CACHE_NAME).then(cache => {
+            cache.put(e.request.url, response.clone());
+            return response;
+          }).catch(err => caches.match(e.request));
+        });
+      }
+    })
+  );
 });
-
-async function cacheFirst(req) {
-  const cachedRes = await caches.match(req);
-  return cachedRes || fetch(req);
-}
-
-async function networkFirst(req) {
-  const cache = await caches.open('dynamic');
-  try {
-    const res = await fetch(req);
-    cache.put(req, res.clone());
-    return res;
-  } catch (err) {
-    return await cache.match(req);
-  }
-}
