@@ -1,4 +1,4 @@
-var CACHE_NAME = 'restaurant-v7';
+var CACHE_NAME = 'restaurant-v8';
 
 //Assests
 var assets = [

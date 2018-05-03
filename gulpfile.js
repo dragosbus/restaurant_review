@@ -26,7 +26,7 @@ gulp.task('imagemin', () => {
 });
 
 gulp.task('bundle', () =>
-    gulp.src(['js/idb.js', 'js/dbhelper.js', 'js/main.js', 'js/restaurant_info.js','js/dlib.js','js/swipe.js', 'js/ui.js'])
+    gulp.src(['js/idb.js', 'js/dbhelper.js', 'js/main.js', 'js/restaurant_info.js','js/dlib.js','js/main-ui.js', 'js/restaurant-ui.js'])
         .pipe(babel({
             presets: ['@babel/env']
         }))
