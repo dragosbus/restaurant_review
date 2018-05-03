@@ -1,4 +1,4 @@
-var CACHE_NAME = 'restaurant-v8';
+var CACHE_NAME = 'restaurant-v9';
 
 //Assests
 var assets = [
@@ -11,8 +11,8 @@ var assets = [
   './dist/js/main.js',
   './dist/js/restaurant_info.js',
   './dist/js/dlib.js',
-  './dist/js/swipe.js',
-  './dist/js/ui.js',
+  './dist/js/main-ui.js',
+  './dist/js/restaurant-ui.js',
   './dist/img/1.jpg',
   './dist/img/2.jpg',
   './dist/img/3.jpg',
