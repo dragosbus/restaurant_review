@@ -1,1 +1,1 @@
-"use strict";var UI={addReview:function(){var e=d.select(".review-add"),c=d.select(".review-text");d.click([e],function(){console.log(c.value)})}};
+"use strict";var UI={addReview:function(e){e.preventDefault();var t=d.select(".review-name"),a=d.select(".review-rating"),n=d.select(".review-comment"),v={name:t.value,rating:a.value,comment:n.value};console.log(v)}};
